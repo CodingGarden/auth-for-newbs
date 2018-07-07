@@ -12,8 +12,9 @@
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "joi": "^13.4.0",
+    "monk": "^6.0.6",
     "volleyball": "^1.5.1"
   },
   "devDependencies": {
