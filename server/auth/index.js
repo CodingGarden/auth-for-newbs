@@ -10,7 +10,7 @@ const router = express.Router();
 
 const schema = Joi.object().keys({
   username: Joi.string().regex(/(^[a-zA-Z0-9_]+$)/).min(2).max(30).required(),
-  password: Joi.string().min(10).required()
+  password: Joi.string().trim().min(10).required()
 });
 
 // any route in here is pre-pended with /auth
@@ -41,7 +41,8 @@ router.post('/signup', (req, res, next) => {
             password: hashedPassword
           };
 
-          users.insert(newUser).then(insertedUser =>{
+          users.insert(newUser).then(insertedUser => {
+            delete insertedUser.password;
             res.json(insertedUser);
           });
         });
