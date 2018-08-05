@@ -45,16 +45,22 @@ Add JWT-based authentication to a Node/Express/Mongo app.
 * [x] If a logged in user visits the signup or login page, redirect them to the dashboard
 * [x] If a non logged in user visits the dashboard, redirect to the login page
 * [x] After sign up, immediately login
-* [ ] Show username on dashboard
+* [x] Show username on dashboard
+* [ ] On homepage, show go to dashboard button instead of signup/login button
 * [ ] Have one protected route on the backend...
 	* [ ] ONLY logged in users can request this route
 
 ### Authorization:
 * [ ] Visitors can only see the homepage
+	* [ ] checkTokenSetUser middleware
+		* [ ] get token from Authorization header
+			* [ ] if defined ---
+				* [ ] Verify the token with the token secret
+				* [ ] Set req.user to be the decoded verified payload
+			* [ ] else - move along
 	* [ ] isLoggedIn middleware
-		* [ ] Validate JWT in header
-      * [ ] set req.user to be JWT payload
-		* [ ] send an unauthorized error message
+		* [ ] if req.user is set - move along
+		* [ ] else - send an unauthorized error message
 	* [ ] redirect to login form
 * [ ] Logged in users can only see their page
 	* [ ] allowAccess middleware
@@ -76,6 +82,8 @@ Add JWT-based authentication to a Node/Express/Mongo app.
   * [ ] Prevent brute force logins
 	* [ ] Lock out account after too many login attempts
 * [ ] Password strength meter!
+* [ ] reCaptcha for signup/login
+* [ ] Testing...
 
 $2y$12$cj4BYDSkUrsk/mgketfvQekBnTF2iOiy6ZK.AjtVRDML5KICytbzm
 $2y$12$0gzNy1.CwIU2AJqDyFnPwuJNfJ63m3VB0OxQ4SrNq8UPlabsqBBF.
