@@ -18,7 +18,7 @@
           aria-describedby="usernameHelp"
           placeholder="Enter a username" required>
         <h5 id="usernameHelp" class="form-text text-muted">
-         Username must be longer than 2 characters and shorter than 30. 
+         Username must be longer than 2 characters and shorter than 30.
          Username can only contain alphanumeric characters and under_scores.
         </h5>
       </div>
@@ -61,7 +61,8 @@ import Joi from 'joi';
 const SIGNUP_URL = 'http://localhost:5000/auth/signup';
 
 const schema = Joi.object().keys({
-  username: Joi.string().regex(/(^[a-zA-Z0-9_]+$)/).min(2).max(30).required(),
+  username: Joi.string().regex(/(^[a-zA-Z0-9_]+$)/).min(2).max(30)
+    .required(),
   password: Joi.string().trim().min(10).required(),
   confirmPassword: Joi.string().trim().min(10).required(),
 });
@@ -106,10 +107,11 @@ export default {
           return response.json().then((error) => {
             throw new Error(error.message);
           });
-        }).then(() => {
+        }).then((result) => {
+          localStorage.token = result.token;
           setTimeout(() => {
             this.signingUp = false;
-            this.$router.push('/login');
+            this.$router.push('/dashboard');
           }, 1000);
         }).catch((error) => {
           setTimeout(() => {
