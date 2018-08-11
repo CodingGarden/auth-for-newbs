@@ -66,21 +66,23 @@ Add JWT-based authentication to a Node/Express/Mongo app.
 * [x] Create notes form on client
 	* [x] Title
 	* [x] Description
-* [ ] POST /api/v1/notes
+* [x] POST /api/v1/notes
 	* [x] Must be logged in
-	* [ ] Logged in Users Can Create Notes
+	* [x] Logged in Users Can Create Notes
 		* [x] Title
 		* [x] Description -- markdown
-		* [ ] Set user_id on server with logged in users id
-* [ ] GET /api/v1/notes
-	* [ ] Must be logged in
-	* [ ] Logged in Users Can request all their notes 
-		* [ ] Get all notes in DB with logged in users user_id
-* [ ] List all notes on client
-	* [ ] Render description with Markdown
+		* [x] Set user_id on server with logged in users id
+* [x] GET /api/v1/notes
+	* [x] Must be logged in
+	* [x] Logged in Users Can request all their notes 
+		* [x] Get all notes in DB with logged in users user_id
+* [x] List all notes on client
+	* [x] Render description with Markdown
 
 ## STRETCH
 
+* [ ] Store date of note in DB
+	* [ ] Sort notes by date created.
 * [ ] View user profile
 * [ ] Users can mark notes as public
 	* [ ] Notes show up on profile
@@ -95,7 +97,16 @@ Add JWT-based authentication to a Node/Express/Mongo app.
 	* [ ] Lock out account after too many login attempts
 * [ ] Password strength meter!
 * [ ] reCaptcha for signup/login
+* [ ] Password reset with email
+* [ ] Forgot password
+	* [ ] Reset with email
+	* [ ] Reset by answering security questions
 * [ ] Testing...
 
-$2y$12$cj4BYDSkUrsk/mgketfvQekBnTF2iOiy6ZK.AjtVRDML5KICytbzm
-$2y$12$0gzNy1.CwIU2AJqDyFnPwuJNfJ63m3VB0OxQ4SrNq8UPlabsqBBF.
+## To deploy everything to the same heroku instance
+
+* [ ] Move the server package.json to the root of the folder
+* [ ] Update start script for server to be a relative path
+* [ ] post-deploy script to server that will build Vue.js
+* [ ] Add a static serve to the server that serves '../client/dist'
+* [ ] Environment variable for DB connection and token secret

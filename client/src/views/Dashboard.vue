@@ -34,10 +34,29 @@
       </div>
       <button type="submit" class="btn btn-success">Add Note</button>
     </form>
+    <section class="row mt-3">
+      <div
+        class="col-6"
+        v-for="note in notes"
+        :key="note._id">
+        <div class="card border-info mb-3">
+          <div class="card-header"><h1>{{note.title}}</h1></div>
+          <div class="card-body">
+            <p class="card-text" v-html="renderMarkDown(note.note)"></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </section>
 </template>
 
 <script>
+import MarkdownIt from 'markdown-it';
+import MDemoji from 'markdown-it-emoji';
+
+const md = new MarkdownIt();
+md.use(MDemoji);
+
 const API_URL = 'http://localhost:5000/';
 
 export default {
@@ -59,12 +78,26 @@ export default {
       .then((result) => {
         if (result.user) {
           this.user = result.user;
+          this.getNotes();
         } else {
           this.logout();
         }
       });
   },
   methods: {
+    renderMarkDown(note) {
+      return md.render(note);
+    },
+    getNotes() {
+      fetch(`${API_URL}api/v1/notes`, {
+        headers: {
+          authorization: `Bearer ${localStorage.token}`,
+        },
+      }).then(res => res.json())
+        .then((notes) => {
+          this.notes = notes;
+        });
+    },
     addNote() {
       fetch(`${API_URL}api/v1/notes`, {
         method: 'post',
@@ -92,5 +125,10 @@ export default {
 </script>
 
 <style>
-
+.card {
+  height: 90%;
+}
+.card-text img {
+  width: 100%;
+}
 </style>

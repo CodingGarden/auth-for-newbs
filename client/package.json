@@ -10,6 +10,8 @@
   "dependencies": {
     "bootswatch": "^4.1.2",
     "joi": "^13.4.0",
+    "markdown-it": "^8.4.2",
+    "markdown-it-emoji": "^1.4.0",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
   },
