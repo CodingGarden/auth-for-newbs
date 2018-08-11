@@ -46,6 +46,9 @@ Add JWT-based authentication to a Node/Express/Mongo app.
 * [x] After sign up, immediately login
 * [x] Show username on dashboard
 * [ ] On homepage, show go to dashboard button instead of signup/login button
+* [ ] If logged in:
+	* [ ] Show logout button in header
+	* [ ] Show user icon and username in header
 
 ### Authorization:
 * [x] Visitors can only see the homepage
@@ -60,9 +63,9 @@ Add JWT-based authentication to a Node/Express/Mongo app.
 		* [x] else - send an unauthorized error message
 	* [x] redirect to login form
 * [x] Logged in users can only see their page
-* [ ] Create notes form on client
-	* [ ] Title
-	* [ ] Description
+* [x] Create notes form on client
+	* [x] Title
+	* [x] Description
 * [ ] POST /api/v1/notes
 	* [ ] Must be logged in
 	* [ ] Logged in Users Can Create Notes
