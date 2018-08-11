@@ -110,3 +110,4 @@ Add JWT-based authentication to a Node/Express/Mongo app.
 * [ ] post-deploy script to server that will build Vue.js
 * [ ] Add a static serve to the server that serves '../client/dist'
 * [ ] Environment variable for DB connection and token secret
+* [ ] Update calls in client from localhost:5000 to be your-app.herokuapp.com
