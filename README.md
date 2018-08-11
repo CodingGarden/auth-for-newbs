@@ -27,17 +27,16 @@ Add JWT-based authentication to a Node/Express/Mongo app.
 	* [x] validate the user
 	* [x] check if username in db
 		* [x] compare password with hashed password in db
-			* [ ] rate limiting
 		* [x] Create and sign a JWT
       * [x] Respond with JWT
-* [ ] Create Login Page
+* [x] Create Login Page
 	* [x] Form with: username and password
-	* [ ] When form is submitted
+	* [x] When form is submitted
 		* [x] Validate username
 			* [x] Display errors
 		* [x] Validate password
 			* [x] Display errors
-		* [ ] POST request to server /auth/login
+		* [x] POST request to server /auth/login
 			* [x] Display errors
 			* [x] If succesful login
 				* [x] Store the token in localStorage
@@ -47,31 +46,41 @@ Add JWT-based authentication to a Node/Express/Mongo app.
 * [x] After sign up, immediately login
 * [x] Show username on dashboard
 * [ ] On homepage, show go to dashboard button instead of signup/login button
-* [ ] Have one protected route on the backend...
-	* [ ] ONLY logged in users can request this route
 
 ### Authorization:
-* [ ] Visitors can only see the homepage
-	* [ ] checkTokenSetUser middleware
-		* [ ] get token from Authorization header
-			* [ ] if defined ---
-				* [ ] Verify the token with the token secret
-				* [ ] Set req.user to be the decoded verified payload
-			* [ ] else - move along
-	* [ ] isLoggedIn middleware
-		* [ ] if req.user is set - move along
-		* [ ] else - send an unauthorized error message
-	* [ ] redirect to login form
-* [ ] Logged in users can only see their page
-	* [ ] allowAccess middleware
-		* [ ] id in url must match id in req.user
- 		* [ ] send an unauthorized error message
-	* [ ] redirect to user page if they visit the homepage
-		* [ ] set user_id in localStorage after login/signup
-* [ ] Add GET /auth/logout to clear user_id cookie
-	* [ ] redirect to login page
+* [x] Visitors can only see the homepage
+	* [x] checkTokenSetUser middleware
+		* [x] get token from Authorization header
+			* [x] if defined ---
+				* [x] Verify the token with the token secret
+				* [x] Set req.user to be the decoded verified payload
+			* [x] else - move along
+	* [x] isLoggedIn middleware
+		* [x] if req.user is set - move along
+		* [x] else - send an unauthorized error message
+	* [x] redirect to login form
+* [x] Logged in users can only see their page
+* [ ] Create notes form on client
+	* [ ] Title
+	* [ ] Description
+* [ ] POST /api/v1/notes
+	* [ ] Must be logged in
+	* [ ] Logged in Users Can Create Notes
+		* [ ] Title
+		* [ ] Description -- markdown
+		* [ ] Set user_id on server with logged in users id
+* [ ] GET /api/v1/notes
+	* [ ] Must be logged in
+	* [ ] Logged in Users Can request all their notes 
+		* [ ] Get all notes in DB with logged in users user_id
+* [ ] List all notes on client
+	* [ ] Render description with Markdown
 
 ## STRETCH
+
+* [ ] View user profile
+* [ ] Users can mark notes as public
+	* [ ] Notes show up on profile
 
 ## Admin Page:
 * [ ] Admin page that lists all users
